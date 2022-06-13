@@ -44,7 +44,7 @@ function App() {
   // finish the drawing
   const endDrawing = () => {
     if (isDrawing) {
-      dispatch(endStroke);
+      dispatch(endStroke());
     }
   };
 
