@@ -1,0 +1,5 @@
+# dist folder
+dist
+
+# ignore eslint.js file
+.eslintrc.js

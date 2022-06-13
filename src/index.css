@@ -1,0 +1,15 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+canvas {
+  transform: translate3d(-50%, 0, 0);
+  cursor: url(/icons/pencil.png) 0 34, auto;
+  margin: 100px 50%;
+}
