@@ -1,6 +1,8 @@
 import { Action } from "./action";
 import { RootState } from "../utils/types";
 
+export const currentStrokeSelector = (state: RootState) => state.currentStroke;
+
 const initialState: RootState = {
   currentStroke: {
     points: [],

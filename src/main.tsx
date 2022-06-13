@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { createRoot } from "react-dom/client";
 import { store } from "./app/store";
-import "./index.css";
+import "./styles/index.css";
 import "xp.css/dist/XP.css";
 
 // import components

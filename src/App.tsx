@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { beginStroke, endStroke, updateStroke } from "./app/action";
-import { clearCanvas, setCanvasSize } from "./utils/canvasUtils";
-import { RootState } from "./utils/types";
+import { currentStrokeSelector } from "./app/rootReducer";
+import { clearCanvas, drawStroke, setCanvasSize } from "./utils/canvasUtils";
 
 const HEIGHT = 768;
 const WIDTH = 1024;
@@ -19,10 +19,10 @@ function App() {
     };
   };
 
+  const currentStroke = useSelector(currentStrokeSelector);
+
   // check to see is drawing or not
-  const isDrawing = useSelector<RootState, boolean>(
-    (state) => !!state.currentStroke.points.length
-  );
+  const isDrawing = !!currentStroke.points.length;
 
   // starting the draw
   const startDrawing = ({
@@ -63,6 +63,15 @@ function App() {
 
     clearCanvas(canvas);
   }, []);
+
+  useEffect(() => {
+    const { context } = getCanvasWithContext();
+    if (!context) return;
+
+    requestAnimationFrame(() =>
+      drawStroke(context, currentStroke.points, currentStroke.color)
+    );
+  }, [currentStroke]);
 
   return (
     <div className="window">
