@@ -50,5 +50,16 @@ export const rootReducer = (
     };
   }
 
+  // set stroke color
+  if (action.type === "SET_STROKE_COLOR") {
+    return {
+      ...state,
+      currentStroke: {
+        ...state.currentStroke,
+        ...{ color: action.payload },
+      },
+    };
+  }
+
   return state;
 };
